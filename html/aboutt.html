@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жуковский Марк Сергеевич</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0);
+            z-index: 102;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: #5bc0de;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .nav-link {
+            color: #5bc0de;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+        }
+
+        .nav-link:hover {
+            color: #3a92a0;
+        }
+
+        .section-padding {
+            padding: 150px 0;
+        }
+
+        /* Видео плеер */
+        #video-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-fluid {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Центрирование текста */
+        .video-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding-right: 20px;
+        }
+
+        .video-text p {
+            margin-left: 200px;
+        }
+
+        /* Стили для кнопок */
+        .btn {
+            background-color: #5bc0de;
+            color: white;
+            padding: 10px 35px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-left: 200px;
+        }
+
+        .btn:hover {
+            background-color: #3a92a0;
+        }
+
+        #description-container {
+            margin-top: 30px;
+        }
+
+        /* Контейнер для работ */
+        .work-slider-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .work-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .work-item {
+            background-color: #eaf7fa;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+        }
+
+        .work-title {
+            font-weight: bold;
+            color: #5bc0de;
+        }
+
+        .work-description {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* Стили для слайдера */
+        .work-links {
+            margin-top: 20px;
+        }
+
+        .work-links a {
+            text-decoration: none;
+            color: #5bc0de;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .work-links a:hover {
+            color: #3a92a0;
+        }
+		
+		#particles-js {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    z-index: -1; /* Чтобы частицы были на заднем плане */
+			
+		}
+    </style>
+</head>
+<body>
+	
+	<div id="particles-js"></div>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <div class="container">
+            <a class="navbar-brand">Жуковский Марк Сергеевич</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Предыдующая страница</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Видео секция -->
+    <section id="video-container" class="section-padding">
+        <div class="container d-flex">
+            <video class="video-fluid" id="video-player" autoplay loop muted controls>
+                <source id="video-source" src="" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-text">
+                <p data-aos="fade-up">Добро пожаловать на страницу Марка Сергеевича Жуковского. Здесь вы найдете материалы и видеоролики, связанные с его работой и исследованиями.</p>
+                <a href="https://www.altstu.ru/structure/chair/ise/staff/532/" class="btn" data-aos="fade-up" target="_blank">Перейти к работе</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Описание и ссылки на работы -->
+    <section id="description-container" class="section-padding">
+        <div class="container">
+            <h2 data-aos="fade-up">Основные научные публикации</h2>
+
+            <!-- Слайдер с работами -->
+            <div class="work-slider-container">
+                <div class="work-slider">
+                    <div class="work-item" data-aos="fade-up">
+                        <p class="work-title">Жуковский М.С., Василевских А.А. — "Проектирование конфигурации на платформе 1С для автоматизации микрофинансовых организаций" (Наука и молодежь-2014)</p>
+                        <p class="work-description"><a href="https://www.altstu.ru/main/sciencework/5147/" target="_blank">Подробнее ››</a></p>
+                    </div>
+                    <div class="work-item" data-aos="fade-up">
+                        <p class="work-title">Жуковский М.С., Гвоздев С.В. — "Автостраховой брокер" на примере ОАО Альфа-банк (Наука и молодежь-2013)</p>
+                        <p class="work-description"><a href="https://www.altstu.ru/main/sciencework/3169/" target="_blank">Подробнее ››</a></p>
+                    </div>
+                    <div class="work-item" data-aos="fade-up">
+                        <p class="work-title">Боровиков К.В., Жуковский М.С. — "Интернет-ресурс Комитета по делам молодежи города Барнаула" (Наука и молодежь-2012)</p>
+                        <p class="work-description"><a href="https://www.altstu.ru/main/sciencework/2775/" target="_blank">Подробнее ››</a></p>
+                    </div>
+					<div class="work-item" data-aos="fade-up">
+					    <p class="work-title">Жуковский М.С., Безносюк С.А., Потекаев А.И., Старостенков М.Д., Теоретические основы компьютерного наноинжиниринга биомиметических наносистем / Томск: Изд-во Научно-Техническая Литература. – 2011. 236с. (Наука и молодежь-2012)</p>
+					    <p class="work-description"><a href="https://www.altstu.ru/main/sciencework/2756/" target="_blank">Подробнее ››</a></p>
+					</div>
+    </section>
+	
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Массив с путями к видео
+        const videos = ["../img/1.mp4", "../img/2.mp4", "../img/3.mp4"];
+        const videoSource = document.getElementById("video-source");
+
+        // Случайное видео при загрузке страницы
+        const randomIndex = Math.floor(Math.random() * videos.length);
+        videoSource.src = videos[randomIndex];
+
+        // Инициализация видео
+        const videoPlayer = document.getElementById("video-player");
+        videoPlayer.load();
+    </script>
+	<script>
+		particlesJS('particles-js', {
+	    particles: {
+	        number: { value: 250, density: { enable: true, value_area: 1000 } },
+	        shape: { type: 'circle', stroke: { width: 0, color: '#fff' } },
+	        opacity: {
+	            value: 0.5,
+	            random: true,
+	            anim: { enable: true, speed: 2, opacity_min: 0.1, sync: false }
+	        },
+	        size: {
+	            value: 2,
+	            random: true,
+	            anim: { enable: true, speed: 6, size_min: 0.2, sync: false }
+	        },
+	        color: { value: ['#5bc0de', '#3a92a0'] },
+	        line_linked: { enable: true, distance: 120, color: '#5bc0de', opacity: 0.4, width: 1 },
+	        move: {
+	            enable: true,
+	            speed: 2,
+	            direction: 'none',
+	            random: true,
+	            straight: false,
+	            out_mode: 'out',
+	            bounce: false
+	        }
+	    },
+	    interactivity: {
+	        detect_on: 'window',
+	        events: {
+	            onhover: { enable: true, mode: 'repulse' },
+	            onclick: { enable: true, mode: 'push' }
+	        },
+	        modes: {
+	            repulse: { distance: 150, duration: 0.1 }, // Расстояние и длительность отталкивания
+	            push: { particles_nb: 4 }
+	        }
+	    },
+	    retina_detect: true
+	});
+	    </script>
+</body>
+</html>

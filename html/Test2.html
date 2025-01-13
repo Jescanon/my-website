@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курс: Программирование в экономике</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Подключение AOS -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    #welcome {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      background: url('https://repository-images.githubusercontent.com/590694679/f10b9101-7916-450c-b4ac-3b61af31801c') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+      padding: 20px;
+    }
+
+    #welcome::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #5bc0de;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #3a92a0;
+    }
+
+    #materials, #tests {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .dropdown {
+      margin: 10px auto;
+      width: 60%;
+      text-align: left;
+    }
+
+    .dropdown button {
+      width: 100%;
+      background-color: #5bc0de;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 1.1rem;
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+    }
+
+	.answer-btn {
+	  background-color: #5bc0de;
+	  color: white;
+	  padding: 10px 20px;
+	  border: none;
+	  border-radius: 5px;
+	  margin: 5px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+	
+	.answer-btn:hover {
+	  background-color: #3a92a0;
+	}
+    .dropdown-content p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .results {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <!-- Главная -->
+  <section id="welcome" data-aos="fade-in">
+    <div class="container">
+      <h1>Добро пожаловать в курс!</h1>
+      <p>Изучите, как программирование помогает в экономике, и проверьте свои знания в тестах.</p>
+      <a href="#materials" class="btn">Начать обучение</a>
+    </div>
+  </section>
+
+  <!-- Теория -->
+  <section id="materials">
+    <h2 data-aos="zoom-in">Программирование в экономике</h2>
+
+    <div class="dropdown" data-aos="fade-right">
+      <button>Что такое программирование в экономике?</button>
+      <div class="dropdown-content">
+        <p>Программирование в экономике помогает автоматизировать анализ данных, прогнозировать тренды и принимать обоснованные решения.</p>
+      </div>
+    </div>
+
+    <div class="dropdown" data-aos="fade-left">
+      <button>Что такое Python?</button>
+      <div class="dropdown-content">
+        <p>Python — это язык программирования, используемый для обработки данных, автоматизации задач и создания экономических моделей.</p>
+      </div>
+    </div>
+
+    <div class="dropdown" data-aos="fade-up">
+      <button>Что такое анализ данных?</button>
+      <div class="dropdown-content">
+        <p>Анализ данных — это процесс изучения данных для выявления закономерностей и получения полезной информации.</p>
+      </div>
+    </div>
+
+    <div class="dropdown" data-aos="fade-down">
+      <button>Какие библиотеки Python используются?</button>
+      <div class="dropdown-content">
+        <p>Популярные библиотеки: Pandas для работы с таблицами, NumPy для численных вычислений, Matplotlib для визуализации данных.</p>
+      </div>
+    </div>
+
+    <div class="dropdown" data-aos="flip-right">
+      <button>Как Python улучшает анализ данных?</button>
+      <div class="dropdown-content">
+        <p>С помощью Python можно быстро обрабатывать большие массивы данных, строить графики и создавать предсказательные модели.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тесты -->
+  <section id="tests">
+    <h2>Проверьте свои знания</h2>
+    <div id="quiz">
+      <div class="question" data-question="1">
+        <p>Для чего используется Python в экономике?</p>
+        <div class="answers">
+          <button class="answer-btn" data-correct="true">Для анализа данных</button>
+          <button class="answer-btn" data-correct="false">Для управления финансами</button>
+        </div>
+      </div>
+      <div class="question" data-question="2" style="display: none;">
+        <p>Что делает библиотека Pandas?</p>
+        <div class="answers">
+          <button class="answer-btn" data-correct="true">Работает с таблицами</button>
+          <button class="answer-btn" data-correct="false">Создает сайты</button>
+        </div>
+      </div>
+      <div class="question" data-question="3" style="display: none;">
+        <p>Что такое анализ данных?</p>
+        <div class="answers">
+          <button class="answer-btn" data-correct="true">Изучение данных для получения выводов</button>
+          <button class="answer-btn" data-correct="false">Процесс создания программ</button>
+        </div>
+      </div>
+      <div class="results" style="display: none;"></div>
+      <button id="finish-test" class="btn" style="display: none;">Завершить тест</button>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    document.querySelectorAll('.dropdown button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    const questions = document.querySelectorAll('.question');
+    const results = document.querySelector('.results');
+    const finishButton = document.getElementById('finish-test');
+    let currentQuestion = 0;
+    let correctAnswers = 0;
+
+    questions.forEach((question, index) => {
+      const buttons = question.querySelectorAll('.answer-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.correct === "true") correctAnswers++;
+          question.style.display = "none";
+          if (index + 1 < questions.length) {
+            questions[index + 1].style.display = "block";
+          } else {
+            results.style.display = "block";
+            results.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
+            finishButton.style.display = "block";
+          }
+        });
+      });
+    });
+
+    finishButton.addEventListener('click', () => {
+      location.reload();
+    });
+  </script>
+</body>
+</html>

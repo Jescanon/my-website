@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жуковский Марк Сергеевич</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+		#navbar {
+			position: fixed; /* Фиксируем панель вверху */
+			top: 0; /* Прижимаем к верхней части экрана */
+			left: 0; /* Прижимаем к левому краю */
+			width: 100%; /* Ширина панели 100% */
+			background-color: rgba(255, 255, 255, 0); /* Сделать панель полностью прозрачной */
+			z-index: 102; /* Устанавливаем уровень наложения */
+			box-shadow: none; /* Убираем тень */
+			padding: 0; /* Убираем отступы внутри */
+		}
+
+		.navbar-brand {
+			font-size: 1.8rem; /* Размер шрифта для бренда */
+			color: #5bc0de; /* Цвет текста бренда */
+		}
+
+		/* Стиль для навигации */
+		.navbar-nav {
+			margin-left: auto;  /* Перемещаем меню вправо на больших экранах */
+			display: flex;
+			justify-content: flex-start; /* На маленьких экранах выравнивание влево */
+		}
+
+		/* Стиль для ссылок */
+		.nav-link {
+			color: #5bc0de; /* Цвет текста для ссылок */
+			font-size: 1.2rem; /* Размер текста для ссылок */
+			transition: all 0.3s ease; /* Плавный переход для ссылок */
+			padding: 10px 15px; /* Добавляем немного отступов для ссылки */
+		}
+		.nav-link:hover {
+			color: #3a92a0; /* Цвет ссылок при наведении */
+		}
+		
+		/* Первоначальный блок */
+       #welcome {
+           display: flex;
+           justify-content: center; /* Центрируем содержимое по горизонтали */
+           align-items: center;     /* Центрируем содержимое по вертикали */
+           height: calc(100vh - 56px); /* Учитываем высоту навигационной панели (56px) */
+           text-align: center;
+           position: relative;
+           flex-direction: column;   /* Вертикальное расположение элементов */
+           background: url('http://www.educaltai.ru/upload/medialibrary/80a/altgpu.jpg') no-repeat center center fixed;
+           background-size: cover;
+           color: white;
+           z-index: 1;
+           overflow: hidden;
+		   padding: 490px 0;
+       }
+
+       
+       #welcome h1, #welcome p {
+           margin: 0; /* Убираем лишние отступы у текста */
+       }
+
+        .container {
+            z-index: 2;
+            position: relative;
+        }
+
+        #welcome::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* Стиль для заголовков */
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Анимация появления */
+	[data-aos="fade-right"],
+	[data-aos="fade-left"],
+	[data-aos="fade-up"],
+	[data-aos="fade-down"] {
+		opacity: 0;
+		transition: opacity 1s ease, transform 1s ease;
+	}
+
+	[data-aos="fade-right"] {
+		transform: translateX(40px); /* Начальное смещение вправо */
+	}
+
+	[data-aos="fade-left"] {
+		transform: translateX(-40px); /* Начальное смещение влево */
+	}
+
+	[data-aos="fade-up"] {
+		transform: translateY(40px); /* Начальное смещение вниз */
+	}
+
+	[data-aos="fade-down"] {
+		transform: translateY(-40px); /* Начальное смещение вверх */
+	}
+
+	/* Анимация при активации */
+	[data-aos="fade-right"].aos-animate,
+	[data-aos="fade-left"].aos-animate,
+	[data-aos="fade-up"].aos-animate,
+	[data-aos="fade-down"].aos-animate {
+		opacity: 1;
+		transform: translate(0); /* Возвращаемся в исходное положение */
+	}
+		
+        .section-padding {
+            padding: 380px 0;
+        }
+
+        .section-padding:nth-of-type(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .section-padding:nth-of-type(even) {
+        background-color: rgba(91, 192, 222, 0.01); /* Полупрозрачный голубой */
+
+        }
+
+        /* Кнопка "Наверх" */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5bc0de;
+            color: white;
+            border-radius: 50%;
+            border: none;
+            width: 50px;
+            height: 50px;
+            display: none;
+            font-size: 24px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+			z-index: 9999;
+        }
+
+        .back-to-top:hover {
+            background-color: #3a92a0;
+            transform: scale(1.1);
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            background-color: #f0f8ff;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+		.cvet {
+			color: #5bc0de; 
+		}
+		
+		.cvet1 {
+		    text-align: center;
+		    font-size: 2.5rem;
+		    background: linear-gradient(90deg, #00c6ff, #0072ff);
+		    -webkit-background-clip: text;
+		    color: transparent;
+		}
+			
+		#materials {
+		    background: rgb(91, 192, 222, 0); /* Фон секции в RGB */
+		    padding: 500px 20px;
+		    color: white;
+		    text-align: center;
+		    font-family: 'Arial', sans-serif;
+		}
+		
+		.futuristic-list {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    font-size: 1.2rem;
+		}
+		
+		.futuristic-list li {
+		    margin: 15px 0;
+		    background: linear-gradient(90deg, rgba(91, 192, 222, 1), rgba(0, 114, 255, 1)); /* Градиент в RGB */
+		    padding: 15px 25px;
+		    border-radius: 10px;
+		    display: inline-block;
+		    color: white;
+		    box-shadow: 0 4px 15px rgba(91, 192, 222, 0.4);
+		    transition: transform 0.3s ease, box-shadow 0.3s ease;
+		    cursor: pointer;
+		}
+		
+		.futuristic-list li:hover {
+		    transform: scale(1.05);
+		    box-shadow: 0 6px 25px rgba(91, 192, 222, 0.6);
+		}
+
+			
+			
+	#video-slider {
+        background-color: #f0f8ff;
+        padding: 270px 0;
+		align-items: center;
+		justify-content: center;
+    }
+
+		.video-fluid {
+        width: 100%; /* Увеличивает ширину плеера до 100% контейнера */
+        max-width: 1200px; /* Ограничивает максимальную ширину */
+        max-height: 90vh; /* Высота видео занимает 90% экрана */
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #5bc0de;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+        background-color: #3a92a0;
+        transition: background-color 0.3s ease;
+    }
+
+	.btn {
+		background-color: #5bc0de;
+		color: white;
+		padding: 15px 30px; /* Умеренные отступы по бокам */
+		border-radius: 4px;
+		text-decoration: none;
+		transition: background-color 0.3s;
+		text-align: center; /* Центрирование текста */
+		display: flex; /* Используем flexbox для выравнивания */
+		align-items: center; /* Вертикальное центрирование */
+		justify-content: center; /* Горизонтальное центрирование */
+		margin-left:  250px; /* Центрирование кнопки по странице */
+		width: fit-content; /* Подгоняем ширину под содержимое */
+	}
+
+	
+
+	.btn:hover {
+		background-color: #3a92a0;
+	}
+	
+	/* Добавление анимации появления при загрузке */
+	[data-aos="fade-up"] {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.6s, transform 0.6s;
+	}
+
+	[data-aos="fade-up"].aos-animate {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	
+	#video-container {
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+		padding: 250px 0;
+		
+	}
+	
+	.video-fluid1 {
+	    width: 80%;
+	    max-width: 650px;
+		max-height: 500px;
+	    aspect-ratio: 1 / 1;
+	    border-radius: 10px;
+	    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		margin-left: 300px;
+		
+	}
+	
+	/* Центрирование текста */
+	.video-text {
+	    flex: 1;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: flex-start;
+	    text-align: justify;
+	    padding-right: 20px;
+		text-indent: 35px;
+	}
+	
+	.video-text p {
+	    margin-left: 200px;
+	}
+	
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Чтобы частицы были на заднем плане */
+			
+        }
+
+        #welcome #particles-js {
+            display: none; /* Скрываем частицы только на странице welcome */
+        }
+		/* Общая стилизация секции */
+
+	
+/* Секция с уникальным id */
+#courses-section {
+  text-align: center;
+  padding: 250px;
+  color: #3a92a0;
+}
+
+#courses-section h2 {
+  margin-bottom: 35px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Уникальный контейнер */
+#courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Карточки */
+.course-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.course-card div {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: absolute;
+}
+
+.course-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.course-card:hover .card-back {
+  transform: rotateY(0);
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #008cba;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.card-back {
+  background: #005f7a;
+  transform: rotateY(180deg);
+}
+
+/* Кнопка "Читать подробнее" */
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #005f7a;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: #005f7a;
+  color: #ffffff;
+}
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <div class="container">
+            <a class="navbar-brand">Жуковский Марк Сергеевич</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#welcome">Добро пожаловать</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#video-container">О преподавателе</a></li>
+					<li class="nav-item"><a class="nav-link" href="#courses-section">Курсы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#video-slider">Видео</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="welcome" class="section-padding rellax-background" data-rellax-speed="-2">
+        <div class="container text-white">
+            <h1 data-aos="fade-up" class="cvet">Добро пожаловать!</h1>
+            <p class="text-center" data-aos="fade-up">Этот сайт посвящен Жуковскому Марку Сергеевичу, доценту кафедры "Информационные системы в экономике" АлтГТУ.</p>
+        </div>
+    </section>
+
+<section id="video-container" class="section-padding">
+		<div id="about" class="video-text">
+		    <p data-aos="fade-up">Марк Сергеевич Жуковский — кандидат химических наук и доцент кафедры "Информационные системы в экономике" АлтГТУ. Его научные интересы включают обработку данных, экономическое моделирование и современные информационные системы.</p>
+		    <a href="html/aboutt.html" class="btn" data-aos="fade-up">Узнать больше</a>
+		</div>
+	    <div class="container">
+			<a href="https://www.gazeta.ru/" target="_blank">
+	        <img class="video-fluid1" data-aos="fade-up" src="img/1.jpg" >
+			</a>
+	    </div>
+	</section>
+
+   <section id="video-slider" class="section-padding" data-aos="fade-up">
+       <div id="videoCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+           <div class="carousel-inner">
+               <div class="carousel-item active">
+                   <video class="video-fluid" controls>
+                       <source src="img/1.mp4" type="video/mp4">
+                       Ваш браузер не поддерживает видео.
+                   </video>
+               </div>
+               <div class="carousel-item">
+                   <video class="video-fluid" controls>
+                       <source src="img/2.mp4" type="video/mp4">
+                       Ваш браузер не поддерживает видео.
+                   </video>
+               </div>
+               <div class="carousel-item">
+                   <video class="video-fluid" controls>
+                       <source src="img/3.mp4" type="video/mp4">
+                       Ваш браузер не поддерживает видео.
+                   </video>
+               </div>
+           </div>
+           <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Предыдущее</span>
+           </button>
+           <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Следующее</span>
+           </button>
+       </div>
+   </section>
+   
+
+<div id="courses-section">
+  <h2 class="cvet">Курсы и программы</h2>
+  <div id="courses-container">
+    <div class="course-card">
+      <div class="card-front">
+        <h3>Базовый курс</h3>
+        <p>Введение в IT и экономику.</p>
+      </div>
+      <div class="card-back">
+        <p></p>
+        <p>Основы программирования</p>
+        <a class="button" href="html/Test1.html">Читать подробнее</a>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="card-front">
+        <h3>Продвинутый курс</h3>
+        <p>Программирование в экономике.</p>
+      </div>
+      <div class="card-back">
+        <p>Питон и анализ данных</p>
+        <a class="button" href="html/Test2.html">Читать подробнее</a>
+      </div>
+    </div>
+	<div class="course-card">
+	  <div class="card-front">
+	    <h3>Курс для проффи</h3>
+		<p>ЯП для профи в экнономике</p>
+	    <p></p>
+	  </div>
+	  <div class="card-back">
+	    <p></p>
+	    <p>1C, GO</p>
+	    <a class="button" href="html/Test3.html">Читать подробнее</a>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+
+      
+<section id="contacts" class="section-padding">
+  <h2 class="cvet">Контакты</h2>
+  <div class="container">
+    <p>Email: mark.zhukovsky@example.com</p>
+    <div style="width: 100%; height: 400px;">
+     <iframe src="https://www.google.com/maps/d/embed?mid=1_faOsvSg9TECBYCTOYqQZlAl7rrnjhA&ehbc=2E312F&noprof=1" width="1440" height="720"></iframe>
+    </div>
+  </div>
+</section>
+	
+    <button class="back-to-top" onclick="window.scrollTo(0, 0);">↑</button>
+	
+    <footer>
+        <p>© 2024 Жуковский Марк Сергеевич</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+	particlesJS('particles-js', {
+    particles: {
+        number: { value: 250, density: { enable: true, value_area: 1000 } },
+        shape: { type: 'circle', stroke: { width: 0, color: '#fff' } },
+        opacity: {
+            value: 0.5,
+            random: true,
+            anim: { enable: true, speed: 2, opacity_min: 0.1, sync: false }
+        },
+        size: {
+            value: 2,
+            random: true,
+            anim: { enable: true, speed: 6, size_min: 0.2, sync: false }
+        },
+        color: { value: ['#5bc0de', '#3a92a0'] },
+        line_linked: { enable: true, distance: 120, color: '#5bc0de', opacity: 0.4, width: 1 },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: true,
+            straight: false,
+            out_mode: 'out',
+            bounce: false
+        }
+    },
+    interactivity: {
+        detect_on: 'window',
+        events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+            repulse: { distance: 150, duration: 0.1 }, // Расстояние и длительность отталкивания
+            push: { particles_nb: 4 }
+        }
+    },
+    retina_detect: true
+});
+    </script>
+<script>
+        AOS.init();
+
+        // Плавная прокрутка
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTopButton.style.display = 'block';
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTopButton.style.display = 'none';
+            }
+        });
+		window.onscroll = function () {
+		    const backToTopButton = document.querySelector('.back-to-top');
+		    if (window.scrollY > 600) {  // Кнопка появляется после прокрутки на 200px вниз
+		        backToTopButton.style.display = "flex";  // Показать кнопку
+		    } else {
+		        backToTopButton.style.display = "none";  // Скрыть кнопку
+		    }
+		};
+    </script>
+<script>
+    const videoCarousel = document.getElementById('videoCarousel');
+    const videos = videoCarousel.querySelectorAll('video');
+    const carousel = new bootstrap.Carousel(videoCarousel, { interval: false });
+
+    // Остановка воспроизведения видео при переключении слайда
+    videoCarousel.addEventListener('slide.bs.carousel', () => {
+        videos.forEach(video => video.pause());
+    });
+
+    // Автоматическое воспроизведение видео, когда слайд становится активным
+    videoCarousel.addEventListener('slid.bs.carousel', () => {
+        const activeVideo = videoCarousel.querySelector('.carousel-item.active video');
+        if (activeVideo) {
+            activeVideo.play();
+        }
+    });
+
+    // Автопереход на следующий слайд после завершения видео
+    videos.forEach(video => {
+        video.addEventListener('ended', () => {
+            carousel.next();
+        });
+    });
+
+    // API IntersectionObserver для контроля видимости видео
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                // Видео на экране — продолжить воспроизведение, если слайд активен
+                const parentItem = video.closest('.carousel-item');
+                if (parentItem.classList.contains('active')) {
+                    video.play();
+                }
+            } else {
+                // Видео исчезло с экрана — остановить воспроизведение
+                video.pause();
+            }
+        });
+    }, { threshold: 0.5 }); // Видео считается видимым, если больше 50% его площади на экране
+
+    // Добавить наблюдателя для каждого видео
+    videos.forEach(video => observer.observe(video));
+</script>
+<script>
+  if (!window.location.pathname.includes("welcome")) {
+    tsParticles.load("particles-js", {
+      particles: {
+        number: {
+          value: 50, // Количество частиц
+        },
+        size: {
+          value: 3, // Размер частиц
+        },
+        move: {
+          enable: true,
+          speed: 1,
+        },
+      },
+    });
+  }
+</script>
+</body>
+</html>
